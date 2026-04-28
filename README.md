@@ -1,4 +1,4 @@
-# Arunika & Baskara - Digital Wedding Invitation
+# Digital Wedding Invitation
 
 Sebuah aplikasi undangan pernikahan digital yang elegan, minimalis, dan modern. Dirancang dengan desain yang bersih (Clean Minimalism) untuk memberikan kesan mewah dan sakral bagi para tamu undangan.
 
@@ -30,17 +30,4 @@ Sebuah aplikasi undangan pernikahan digital yang elegan, minimalis, dan modern. 
 - **Framer Motion**: Library animasi untuk memberikan efek transisi dan gerakan yang halus.
 - **Lucide React**: Koleksi ikon yang elegan dan minimalis.
 
-## 🚀 Cara Menjalankan Project
-
-1. Pastikan Anda memiliki Node.js terinstal.
-2. Install dependensi:
-   ```bash
-   npm install
-   ```
-3. Jalankan server pengembangan:
-   ```bash
-   npm run dev
-   ```
-
 ---
-Dibuat dengan ❤️ untuk hari bahagia Arunika & Baskara.
