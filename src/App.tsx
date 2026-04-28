@@ -37,6 +37,16 @@ export default function App() {
   const [wishes, setWishes] = useState<{name: string, message: string}[]>([]);
   const [formData, setFormData] = useState({ name: '', message: '' });
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [guestName, setGuestName] = useState<string | null>(null);
+
+  // Get guest name from URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const to = params.get('to');
+    if (to) {
+      setGuestName(decodeURIComponent(to));
+    }
+  }, []);
 
   // Countdown Logic
   useEffect(() => {
@@ -104,6 +114,18 @@ export default function App() {
           <h1 className="font-serif text-6xl md:text-7xl text-brand-accent mb-10 leading-tight">
             Arunika & Baskara
           </h1>
+
+          {guestName && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mb-10"
+            >
+              <p className="text-[10px] tracking-[2px] opacity-40 uppercase mb-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+              <p className="font-serif text-2xl text-brand-accent italic">{guestName}</p>
+            </motion.div>
+          )}
           
           <button
             onClick={handleOpen}
@@ -324,12 +346,19 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mt-20 text-center">
+          <div className="mt-20 text-center flex flex-col md:flex-row items-center justify-center gap-4">
             <a 
               href="#" 
               className="inline-block border border-brand-dark px-10 py-4 text-[11px] tracking-[2px] uppercase hover:bg-brand-dark hover:text-brand-bg transition-colors"
             >
               Lihat Lokasi Maps
+            </a>
+            <a 
+              href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Arunika+%26+Baskara&dates=20261028T010000Z/20261028T140000Z&details=Mohon+doa+dan+kehadirannya+pada+pernikahan+kami.&location=Jakarta" 
+              target="_blank"
+              className="inline-block border border-brand-border px-10 py-4 text-[11px] tracking-[2px] uppercase hover:border-brand-dark transition-colors"
+            >
+              Simpan ke Kalender
             </a>
           </div>
         </div>

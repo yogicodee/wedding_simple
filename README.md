@@ -5,9 +5,11 @@ Sebuah aplikasi undangan pernikahan digital yang elegan, minimalis, dan modern. 
 ## ✨ Fitur Utama
 
 - **Elegant Opening Cover**: Halaman pembuka dengan dekorasi minimalis dan animasi halus untuk menyambut tamu.
+- **Guest Personalization**: Fitur penyebutan nama tamu secara otomatis melalui URL parameter untuk kesan yang lebih personal (contoh: `?to=NamaTamu`).
 - **Interactive Invitation**: Animasi transisi yang mulus saat membuka undangan menggunakan Framer Motion.
 - **Love Story**: Narasi visual mengenai perjalanan profil cinta kedua mempelai dengan layout timeline yang elegan.
 - **Countdown Timer**: Penghitung waktu mundur real-time menuju hari pernikahan untuk membangun antusiasme tamu.
+- **Add to Calendar**: Memungkinkan tamu menyimpan jadwal acara langsung ke kalender (Google Calendar) mereka.
 - **Digital Envelope (Kado Digital)**: Memudahkan tamu memberikan tanda kasih secara digital melalui detail rekening atau e-wallet yang terintegrasi dengan fitur "Salin".
 - **RSVP (Konfirmasi Kehadiran)**: Form fungsional bagi tamu untuk mengonfirmasi kehadiran dan jumlah tamu yang akan datang.
 - **Protocol & Guidelines**: Informasi panduan protokol kesehatan dan tata tertib acara demi kenyamanan bersama.
