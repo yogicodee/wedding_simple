@@ -368,16 +368,16 @@ export default function App() {
       <section className="py-32 px-6 bg-brand-bg">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="font-serif text-3xl text-brand-accent mb-4">Protokol Acara</h2>
-            <p className="text-[10px] tracking-[2px] opacity-40 uppercase">Kenyamanan dan keamanan bersama</p>
+            <h2 className="font-serif text-3xl text-brand-accent mb-4">Tata Tertib Acara</h2>
+            <p className="text-[10px] tracking-[2px] opacity-40 uppercase">Kenyamanan dan khidmatnya acara</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
-              { icon: <Ring className="w-6 h-6" />, text: "MASKER DIWAJIBKAN" },
-              { icon: <Heart className="w-6 h-6" />, text: "CUCI TANGAN" },
-              { icon: <MapPin className="w-6 h-6" />, text: "JAGA JARAK" },
+              { icon: <Heart className="w-6 h-6" />, text: "PAKAIAN SOPAN" },
               { icon: <Clock className="w-6 h-6" />, text: "TEPAT WAKTU" },
+              { icon: <Ring className="w-6 h-6" />, text: "DOA RESTU" },
+              { icon: <MapPin className="w-6 h-6" />, text: "TERTIB & RAMAH" },
             ].map((p, i) => (
               <motion.div 
                 key={i}
