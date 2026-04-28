@@ -196,6 +196,68 @@ export default function App() {
         </div>
       </section>
 
+      {/* Love Story Section */}
+      <section className="py-32 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="font-serif text-4xl text-brand-accent mb-4">Kisah Cinta</h2>
+            <div className="w-12 h-[1px] bg-brand-border mx-auto mb-6" />
+            <p className="text-[10px] tracking-[2px] opacity-40 uppercase">Perjalanan cinta kami</p>
+          </div>
+
+          <div className="space-y-24 relative">
+            {/* Center Line for Desktop */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-brand-border/20 -translate-x-1/2 md:block hidden" />
+            
+            {[
+              { year: '2022', title: 'Pertama Bertemu', story: 'Semua bermula dari pertemuan tak sengaja di sebuah perpustakaan kota. Percakapan singkat tentang hobi yang sama membawa kami ke tahap yang lebih jauh.' },
+              { year: '2024', title: 'Menjalin Komitmen', story: 'Setelah dua tahun saling mengenal dan menguatkan satu sama lain, kami memutuskan untuk berkomitmen menjalani hubungan yang lebih serius.' },
+              { year: '2026', title: 'Langkah Baru', story: 'Di hari yang istimewa ini, kami mengikat janji suci untuk hidup semati, membangun bahtera rumah tangga yang penuh cinta.' }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className={`relative flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center md:items-start gap-8 md:gap-24`}
+              >
+                {/* Left/Alternating Content */}
+                <div className={`md:w-1/2 text-center ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'} hidden md:block`}>
+                  {i % 2 === 0 && (
+                    <>
+                      <h4 className="font-serif text-2xl text-brand-accent mb-2">{item.title}</h4>
+                      <p className="text-[10px] tracking-[2px] opacity-40 uppercase mb-4">{item.year}</p>
+                      <p className="text-sm opacity-60 leading-relaxed italic">{item.story}</p>
+                    </>
+                  )}
+                </div>
+                
+                {/* Timeline Dot */}
+                <div className="w-3 h-3 rounded-full border border-brand-dark bg-brand-bg relative z-10 shrink-0 md:block hidden mt-2" />
+
+                {/* Right/Alternating Content + Mobile View Content */}
+                <div className={`md:w-1/2 text-center ${i % 2 !== 0 ? 'md:text-left' : 'md:text-right'} md:block`}>
+                  {(i % 2 !== 0 || window.innerWidth < 768) && (
+                    <div className={i % 2 === 0 ? 'md:hidden' : ''}>
+                      <h4 className="font-serif text-2xl text-brand-accent mb-2">{item.title}</h4>
+                      <p className="text-[10px] tracking-[2px] opacity-40 uppercase mb-4">{item.year}</p>
+                      <p className="text-sm opacity-60 leading-relaxed italic">{item.story}</p>
+                    </div>
+                  )}
+                  {i % 2 !== 0 && (
+                    <div className="hidden md:block">
+                      <h4 className="font-serif text-2xl text-brand-accent mb-2">{item.title}</h4>
+                      <p className="text-[10px] tracking-[2px] opacity-40 uppercase mb-4">{item.year}</p>
+                      <p className="text-sm opacity-60 leading-relaxed italic">{item.story}</p>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Photo Gallery */}
       <section className="py-32 px-6 bg-white border-y border-brand-border/10 overflow-hidden">
         <div className="max-w-6xl mx-auto">
