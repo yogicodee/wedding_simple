@@ -196,6 +196,42 @@ export default function App() {
         </div>
       </section>
 
+      {/* Photo Gallery */}
+      <section className="py-32 px-6 bg-white border-y border-brand-border/10 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="font-serif text-4xl text-brand-accent mb-4">Momen Bahagia</h2>
+            <div className="w-12 h-[1px] bg-brand-border mx-auto mb-6" />
+            <p className="text-[10px] tracking-[2px] opacity-40 uppercase">Kepingan potret cinta kami</p>
+          </div>
+
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+            {[
+              { label: 'Moment 1', aspect: 'aspect-square' },
+              { label: 'Moment 2', aspect: 'aspect-[3/4]' },
+              { label: 'Moment 3', aspect: 'aspect-[4/3]' },
+              { label: 'Moment 4', aspect: 'aspect-[3/5]' },
+              { label: 'Moment 5', aspect: 'aspect-square' },
+              { label: 'Moment 6', aspect: 'aspect-[4/5]' },
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`relative group bg-gray-50 overflow-hidden ${item.aspect} break-inside-avoid`}
+              >
+                <div className="absolute inset-0 bg-brand-dark/5 group-hover:bg-transparent transition-all z-10" />
+                <div className="w-full h-full flex items-center justify-center font-serif italic text-brand-dark/10">
+                  {item.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Event Details */}
       <section className="py-32 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
@@ -272,6 +308,109 @@ export default function App() {
                 <p className="text-sm opacity-60 leading-relaxed italic">{w.message}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RSVP Confirmation */}
+      <section className="py-32 px-6">
+        <div className="max-w-xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl text-brand-accent mb-4">Konfirmasi Kehadiran</h2>
+            <p className="text-[10px] tracking-[2px] opacity-40 uppercase">Mohon konfirmasi kehadiran Anda</p>
+          </div>
+
+          <div className="bg-white border border-brand-border/20 p-10 md:p-12 shadow-sm">
+            <form className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-[10px] tracking-[2px] opacity-40 uppercase">Nama Lengkap</label>
+                  <input type="text" className="w-full border-b border-brand-border py-2 focus:outline-none focus:border-brand-dark text-sm bg-transparent" placeholder="JOHAN DOE" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] tracking-[2px] opacity-40 uppercase">Jumlah Tamu</label>
+                  <select className="w-full border-b border-brand-border py-2 focus:outline-none focus:border-brand-dark text-sm bg-transparent">
+                    <option>1 ORANG</option>
+                    <option>2 ORANG</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <label className="text-[10px] tracking-[2px] opacity-40 uppercase block">Konfirmasi</label>
+                <div className="flex gap-8">
+                  <label className="flex items-center gap-3 cursor-pointer group">
+                    <input type="radio" name="attendance" className="w-4 h-4 accent-brand-dark" />
+                    <span className="text-xs tracking-[1px] opacity-60 group-hover:opacity-100 italic">SAYA AKAN HADIR</span>
+                  </label>
+                  <label className="flex items-center gap-3 cursor-pointer group">
+                    <input type="radio" name="attendance" className="w-4 h-4 accent-brand-dark" />
+                    <span className="text-xs tracking-[1px] opacity-60 group-hover:opacity-100 italic">SAYA BERHALANGAN</span>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" className="w-full py-4 bg-brand-dark text-brand-bg text-[10px] tracking-[2px] uppercase hover:bg-brand-accent transition-colors">
+                Kirim Konfirmasi
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Digital Envelope */}
+      <section className="py-32 px-6 bg-white border-y border-brand-border/10">
+        <div className="max-w-xl mx-auto text-center">
+          <div className="mb-16">
+            <h2 className="font-serif text-3xl text-brand-accent mb-4">Kado Digital</h2>
+            <p className="text-[10px] tracking-[2px] opacity-40 uppercase">Tanda kasih untuk kedua mempelai</p>
+          </div>
+
+          <div className="space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-10 border border-brand-border/30 bg-brand-bg/30 relative group"
+            >
+              <p className="text-[10px] tracking-[4px] uppercase opacity-40 mb-6">Bank Transfer</p>
+              <h4 className="font-serif text-2xl text-brand-accent mb-2">BANK MANDIRI</h4>
+              <p className="font-serif text-xl tracking-[2px] mb-4">1234 5678 9012</p>
+              <p className="text-sm opacity-60">a.n Arunika Salsabila</p>
+              
+              <button 
+                onClick={() => {
+                  navigator.clipboard.writeText('123456789012');
+                  alert('Nomor rekening berhasil disalin');
+                }}
+                className="mt-8 text-[10px] tracking-[2px] uppercase border-b border-brand-dark pb-1 opacity-40 hover:opacity-100 transition-opacity"
+              >
+                Salin Rekening
+              </button>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="p-10 border border-brand-border/30 bg-brand-bg/30 relative"
+            >
+              <p className="text-[10px] tracking-[4px] uppercase opacity-40 mb-6">E-Wallet</p>
+              <h4 className="font-serif text-2xl text-brand-accent mb-2">GOPAY / DANA</h4>
+              <p className="font-serif text-xl tracking-[2px] mb-4">0812 3456 7890</p>
+              <p className="text-sm opacity-60">a.n Baskara Aditama</p>
+              
+              <button 
+                onClick={() => {
+                  navigator.clipboard.writeText('081234567890');
+                  alert('Nomor e-wallet berhasil disalin');
+                }}
+                className="mt-8 text-[10px] tracking-[2px] uppercase border-b border-brand-dark pb-1 opacity-40 hover:opacity-100 transition-opacity"
+              >
+                Salin Nomor
+              </button>
+            </motion.div>
           </div>
         </div>
       </section>
