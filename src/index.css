@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Georgia", serif;
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  
+  --color-brand-bg: #FAF9F6;
+  --color-brand-dark: #2D2D2D;
+  --color-brand-border: #D1D1D1;
+  --color-brand-accent: #3A3A3A;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-dark font-sans transition-colors duration-500;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.minimal-border {
+  border: 20px solid #FFFFFF;
+}
+
+.date-box {
+  @apply border-y border-brand-border py-4 px-10 my-8 inline-block;
+}
+
+.corner-decoration {
+  @apply fixed font-serif text-[120px] opacity-[0.03] text-black leading-none pointer-events-none z-0;
+}
