@@ -273,6 +273,39 @@ export default function App() {
         </div>
       </section>
 
+      {/* Protocol Section */}
+      <section className="py-32 px-6 bg-brand-bg">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="font-serif text-3xl text-brand-accent mb-4">Protokol Acara</h2>
+            <p className="text-[10px] tracking-[2px] opacity-40 uppercase">Kenyamanan dan keamanan bersama</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+            {[
+              { icon: <Ring className="w-6 h-6" />, text: "MASKER DIWAJIBKAN" },
+              { icon: <Heart className="w-6 h-6" />, text: "CUCI TANGAN" },
+              { icon: <MapPin className="w-6 h-6" />, text: "JAGA JARAK" },
+              { icon: <Clock className="w-6 h-6" />, text: "TEPAT WAKTU" },
+            ].map((p, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="flex flex-col items-center text-center space-y-4"
+              >
+                <div className="w-12 h-12 border border-brand-border/30 rounded-full flex items-center justify-center text-brand-dark/40">
+                  {p.icon}
+                </div>
+                <span className="text-[9px] tracking-[2px] uppercase opacity-60 leading-tight">{p.text}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Wishes Form */}
       <section className="py-32 px-6">
         <div className="max-w-xl mx-auto">
@@ -412,6 +445,33 @@ export default function App() {
               </button>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Live Stream Section */}
+      <section className="py-32 px-6 bg-white border-y border-brand-border/10">
+        <div className="max-w-xl mx-auto text-center">
+          <div className="mb-12">
+            <h2 className="font-serif text-3xl text-brand-accent mb-4">Siaran Langsung</h2>
+            <p className="text-[10px] tracking-[2px] opacity-40 uppercase">Saksikan momen bahagia kami secara virtual</p>
+          </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="p-12 bg-brand-bg/50 border border-brand-border/20 rounded-sm"
+          >
+            <p className="font-serif text-lg italic mb-8 opacity-70">
+              "Bagi keluarga dan sahabat yang berhalangan hadir secara fisik, kami mengundang Anda untuk bergabung melalui siaran langsung."
+            </p>
+            <a 
+              href="#" 
+              className="inline-flex items-center gap-3 bg-brand-dark text-brand-bg px-10 py-4 text-[10px] tracking-[3px] uppercase hover:bg-brand-accent transition-colors"
+            >
+              <Music className="w-4 h-4" /> Buka Link Streaming
+            </a>
+          </motion.div>
         </div>
       </section>
 
